@@ -73,12 +73,15 @@ function set_table($id,$ip,$key){
 	echo "<br><h5>Host:".$ip."</h5><br>";
 	while($row=mysqli_fetch_assoc($res))
 	{
-		echo "<tr>";
-		echo"<td>".$row['pnumber']."</td>";
-		echo"<td>".$row['pstate']."</td>";
-		echo"<td>".$row['pservice']."</td>";
-		echo"<td>".$row['pproduct']."</td>";
-		echo "</tr>";
+		if($row['hid']==$id)
+		{
+			echo "<tr>";
+			echo"<td>".$row['pnumber']."</td>";
+			echo"<td>".$row['pstate']."</td>";
+			echo"<td>".$row['pservice']."</td>";
+			echo"<td>".$row['pproduct']."</td>";
+			echo "</tr>";
+		}
 	}
 }
 
